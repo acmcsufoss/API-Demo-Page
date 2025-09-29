@@ -10,9 +10,11 @@
 <body>
     <h1>Officers</h1>
     <div class = "feature">
-    <button class="featureBtn">
-        <h2>Add</h2>
-    </button>
+    <a href = "addOfficerForm.html">
+        <button class="featureBtn">
+            <h2>Add</h2>
+        </button>
+    </a>
     <button class="featureBtn">
         <h2>Remove</h2>
     </button>
@@ -77,3 +79,62 @@
     <script src="script.js"></script>
 </body>
 </html>
+<style>
+    body{
+    margin: 0;
+    }
+    .feature{
+        display:block;
+        width: 400px;
+        position:relative;
+    }
+    .featureBtn{
+        background-color: white;
+        position:relative;
+        left:5px;
+    }
+    h1{
+        font-size: 45px;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: lightgray;
+        text-align: center;
+        padding: 20px;
+        border-color:black;
+        border-style: solid;
+    }
+    h2{
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+    }
+    .btn{
+        position: relative;
+        left:120px;
+        width:400px;
+        height:200px;
+        margin:auto;
+        border-color:black;
+        border-style: solid;
+        background-color: white;
+    }
+
+    div{
+        width:900px;
+        height:450;
+        margin:auto;
+        border-color:black;
+        border-style: solid;
+        background-color: white;
+        padding:20px;
+    }
+    h3{
+        display:inline-block;
+        right:120px;
+    }
+    p{
+        white-space: pre;
+    }
+    img {
+        float:left;
+    }
+</style>
