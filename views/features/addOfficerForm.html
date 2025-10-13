@@ -8,19 +8,24 @@
     <title>Add Events</title>
 </head>
 <body>
-    <h1>Add Events</h1>
+    <h1>Add Officer</h1>
     <h2>Please enter the required information here.</h2>
     <div class = "title">
-        <p>Title</p>
+        <p>Name</p>
         <textarea class = "titleText"></textarea>
     </div>
     <div class = "main">
-        <p>Main Text</p>
+        <p>Info</p>
         <textarea class = "mainText"></textarea>
+    </div>
+    <div class = "picture">
+        <p>Profile Image</p>
+        <img src="..\User Icons\user-group-icon.png" alt="User Pfp" style="position:relative; left:12.5%; width:100px; height:100px;">
+        <button class = "changePicButton">Change Profile Picture</button>
     </div>
     <div class = "buttons">
         <button class = "btn">Add</button>
-        <a href = "events.html">
+        <a href = "../officers.html">
             <button class = "btn">Cancel</button>
         </a>
     </div>
@@ -61,9 +66,20 @@
     }
     .mainText{
         position:relative;
-        left:2%;
+        left:3.1%;
         min-height:10rem;
-        width:96.4rem;
+        width:100rem;
+    }
+    .picture{
+        display:flex;
+        margin-top:2rem;
+    }
+    .changePicButton{
+        position:relative;
+        left:32%;
+        height:3rem;
+        width:13rem;
+        margin-top:2rem;
     }
     .buttons{
         position:relative;
