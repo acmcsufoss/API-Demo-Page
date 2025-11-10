@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styleAnnouncementEvent.css">
+    <title>Event Calendar</title>
+</head>
+<body>
+    <h1>Event Calendar</h1>
+    <div class = "calendar">
+        <div class="month">
+            <p id="monthHeader"></p>
+            <script>
+                const now = new Date()
+                const months = [
+                    "January", "February", "March",
+                    "April", "May", "June", "July",
+                    "August", "September", "October",
+                    "November", "December"
+                ];
+                let currentMonth = now.getMonth()
+                document.getElementById("monthHeader").innerHTML = `<h2>${months[currentMonth]}</h2>`;
+                function nextprev(n) {
+                    if (n == 1){
+                        currentMonth += 1;
+                    }
+                    else{
+                        currentMonth -= 1;
+                    }
+                    if (currentMonth > 12 || currentMonth < 0) {
+                        currentMonth = 0
+                    }
+                    document.getElementById("monthHeader").innerHTML = `<h2>${months[currentMonth]}</h2>`
+                }
+            </script>
+        </div>
+        <div class = "buttons">
+            <button class="left">&#10094;</button>
+            <button class="right">&#10095;</button>
+        </div>
+        <div class = "days">
+            <div class = "dayBox">
+                <p class = "day">Sunday</p>
+            </div>
+            <div class = "dayBox">
+                <p class = "day">Monday</p>
+            </div>
+            <div class = "dayBox">
+                <p class = "day">Tuesday</p>
+            </div>
+            <div class = "dayBox">
+                <p class = "day">Wednesday</p>
+            </div>
+            <div class = "dayBox">
+                <p class = "day">Thursday</p>
+            </div>
+            <div class = "dayBox">
+                <p class = "day">Friday</p>
+            </div>
+            <div class = "dayBox">
+                <p class = "day">Saturday</p>
+            </div>
+        </div>
+        <div class = "cellBox">
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+            <div class = "cell"></div>
+        </div>
+    </div>
+</body>
+<style>
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    h1{
+        font-size: 45px;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: lightgray;
+        text-align: center;
+        padding: 20px;
+        border-style: solid;
+    }
+    .calendar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        width: 45rem;
+        height: 65rem;
+        left: 30%;
+        border: 2px solid black;
+    }
+    .month{
+        position: relative;
+        width: 45rem;
+        height: 10rem;
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .monthHeader{
+        position: relative;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: lightgray;
+        text-align: center;
+        border-style: solid;
+    }
+    .days{
+        display: flex;
+        justify-content: space-around;
+        position:relative;
+        height: 2.5rem;
+        width: 45rem;
+        border: 2px solid black;
+
+    }
+    .dayBox{
+        position :relative;
+        width: 6.4285714285714285714285714285714rem;
+        border: 2px solid black;
+    }
+    .cellBox{
+        position:relative;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap: 0px;
+        width: 45rem;
+        height: 52.5rem;
+        border: 2px solid black;
+    }
+    .cell{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 8.75rem;
+        width: 6.3285714285714285714285714285714rem;
+        border: 2px solid black;
+    }
+</style>
