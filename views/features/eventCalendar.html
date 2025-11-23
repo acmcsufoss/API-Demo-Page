@@ -14,15 +14,16 @@
         <div class="month">
             <p id="monthHeader"></p>
             <script>
-                const now = new Date()
+                const now = new Date();
                 const months = [
                     "January", "February", "March",
                     "April", "May", "June", "July",
                     "August", "September", "October",
                     "November", "December"
                 ];
-                let currentMonth = now.getMonth()
-                document.getElementById("monthHeader").innerHTML = `<h2>${months[currentMonth]}</h2>`;
+                let currentMonth = now.getMonth();
+                let currentYear = now.getFullYear();
+                document.getElementById("monthHeader").innerHTML = `<h2>${months[currentMonth]} ${currentYear}</h2>`;
                 function nextprev(n) {
                     if (n == 1){
                         currentMonth += 1;
@@ -30,16 +31,26 @@
                     else{
                         currentMonth -= 1;
                     }
-                    if (currentMonth > 12 || currentMonth < 0) {
-                        currentMonth = 0
+                    if (currentMonth >= 12 || currentMonth < 0) {
+                        if (currentMonth >= 12) {
+                            currentMonth = 0;
+                        } else if (currentMonth < 0){
+                            currentMonth = 11;
+                        }
+                        if (n == 1) {
+                            currentYear += 1;
+                        } else {
+                            currentYear -= 1;
+                        }
                     }
-                    document.getElementById("monthHeader").innerHTML = `<h2>${months[currentMonth]}</h2>`
+                    document.getElementById("monthHeader").innerHTML = `<h2>${months[currentMonth]} ${currentYear}</h2>`
+                    loadCalendar()
                 }
             </script>
         </div>
         <div class = "buttons">
-            <button class="left">&#10094;</button>
-            <button class="right">&#10095;</button>
+            <button class="left" onclick="nextprev(0)">&#10094;</button>
+            <button class="right" onclick = "nextprev(1)">&#10095;</button>
         </div>
         <div class = "days">
             <div class = "dayBox">
@@ -65,48 +76,129 @@
             </div>
         </div>
         <div class = "cellBox">
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
-            <div class = "cell"></div>
+            <div class = "cell" id = "0"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "1"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "2"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "3"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "4"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "5"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "6"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "10"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "11"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "12"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "13"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "14"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "15"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "16"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "20"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "21"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "22"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "23"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "24"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "25"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "26"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "30"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "31"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "32"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "33"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "34"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "35"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "36"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "40"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "41"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "42"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "43"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "44"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "45"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "46"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "50"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "51"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "52"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "53"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "54"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "55"><h2 class = "dayText"></h2></div>
+            <div class = "cell" id = "56"><h2 class = "dayText"></h2></div>
+            <script>
+                function loadCalendar() {
+                    let startOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+                    let numOfDays = new Date(currentYear, currentMonth + 1, 0).getDate();
+                    //cleanup
+                    day = 0;
+                    w = 0;
+                    for (e = 0; e < 42; e++) {
+                        const outer = document.getElementById(day.toString());
+                        if (outer) {
+                            const dateVal = outer.querySelector(".dayText");
+                            dateVal.textContent = "";
+                        }
+                        day++;
+                        if (day - w > 6) {
+                            w += 10;
+                            day = w;
+                        }
+                    }
+                    //cleanup
+                    day = startOfMonth;
+                    w = 0
+                    for (i = 1; i <= numOfDays; ++i){
+                        if (day - w == 0) {
+                            const outer = document.getElementById(day.toString());
+                            if (outer) {
+                                const dateVal = outer.querySelector(".dayText");
+                                dateVal.textContent = i;
+                            }
+                        }
+                        else if (day - w == 1) {
+                            const outer = document.getElementById(day.toString());
+                            if (outer) {
+                                const dateVal = outer.querySelector(".dayText")
+                                dateVal.textContent = i;
+                            }
+                        }
+                        else if (day - w == 2) {
+                            const outer = document.getElementById(day.toString());
+                            if (outer) {
+                                const dateVal = outer.querySelector(".dayText")
+                                dateVal.textContent = i;
+                            }
+                        }
+                        else if (day - w == 3) {
+                            const outer = document.getElementById(day.toString());
+                            if (outer) {
+                                const dateVal = outer.querySelector(".dayText")
+                                dateVal.textContent = i;
+                            }
+                        }
+                        else if (day - w == 4) {
+                            const outer = document.getElementById(day.toString());
+                            if (outer) {
+                                const dateVal = outer.querySelector(".dayText")
+                                dateVal.textContent = i;
+                            }
+                        }
+                        else if (day - w == 5) {
+                            const outer = document.getElementById(day.toString());
+                            if (outer) {
+                                const dateVal = outer.querySelector(".dayText")
+                                dateVal.textContent = i;
+                            }
+                        }
+                        else if (day - w == 6) {
+                            const outer = document.getElementById(day.toString());
+                            if (outer) {
+                                const dateVal = outer.querySelector(".dayText")
+                                dateVal.textContent = i;
+                            }
+                        }
+                        day += 1
+                        if (day - w > 6) {
+                            w += 10;
+                            day = w;
+                        }
+                    }
+                }
+                loadCalendar()
+            </script>
         </div>
     </div>
 </body>
@@ -179,10 +271,16 @@
     }
     .cell{
         display:flex;
+        position: relative;
         justify-content: center;
         align-items: center;
         height: 8.75rem;
         width: 6.3285714285714285714285714285714rem;
         border: 2px solid black;
+    }
+    .dayText{
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 </style>
